@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4654444993870285304}
   - component: {fileID: 4117179634683664817}
   - component: {fileID: 684950405062003417}
-  m_Layer: 0
+  - component: {fileID: 2167559098904379834}
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -46,13 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5256b3bdc0e76064aba259238e41c8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPos: {x: 0, y: 0}
-  velocity: {x: 0, y: 0, z: 0}
   jumpHeight: 5
   fallVelocity: -10
-  walkAcceleration: 5
-  speed: 10
-  groundDeceleration: 15
+  walkAcceleration: 25
+  speed: 5
+  groundDeceleration: 25
   airMovementAdjuster: 0.7
   grounded: 0
 --- !u!61 &4117179634683664817
@@ -68,7 +67,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -79,7 +78,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
 --- !u!50 &684950405062003417
 Rigidbody2D:
@@ -102,6 +101,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2167559098904379834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654444993870285308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d18ea1ee0504f418316ef04b93258b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7265211171516901761
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +124,7 @@ GameObject:
   - component: {fileID: 1852246396936218357}
   - component: {fileID: 606836058290050206}
   - component: {fileID: 3519796467702142893}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
