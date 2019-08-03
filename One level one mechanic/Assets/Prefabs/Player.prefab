@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 684950405062003417}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,12 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5256b3bdc0e76064aba259238e41c8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPos: {x: 0, y: 0}
   velocity: {x: 0, y: 0, z: 0}
   jumpHeight: 5
   fallVelocity: -10
   walkAcceleration: 5
   speed: 10
   groundDeceleration: 15
+  airMovementAdjuster: 0.7
   grounded: 0
 --- !u!61 &4117179634683664817
 BoxCollider2D:

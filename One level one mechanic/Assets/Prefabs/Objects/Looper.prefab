@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 4152903731034380151}
   - component: {fileID: 5758286499767336369}
   - component: {fileID: 8371454568340503184}
+  - component: {fileID: 8308766554870360071}
   m_Layer: 0
   m_Name: Looper
   m_TagString: Untagged
@@ -138,3 +139,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13, y: 0.13}
   m_EdgeRadius: 0
+--- !u!114 &8308766554870360071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4686545210688701687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e66dc20cf9c1dab4a85bf5fa40ce37ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_loopPointObject: {fileID: 1386797460519544446}
+  m_speed: 4
