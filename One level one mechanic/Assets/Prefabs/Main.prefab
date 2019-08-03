@@ -62,25 +62,6 @@ MonoBehaviour:
   - {fileID: 8058950894184012628, guid: f6e7ab7f71f3c074ebd6b04711f872e2, type: 3}
   - {fileID: 9126840685213371151, guid: 446f6d93113dd6a4fa828280c422fe57, type: 3}
   - {fileID: 1362892927809381779, guid: 3cc690398aa7e16448be0a729b22f171, type: 3}
-  m_character:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  m_playerSpawn: {fileID: 875535300110232528}
   m_currentLevel: 0
 --- !u!1 &7220866523741849591
 GameObject:
