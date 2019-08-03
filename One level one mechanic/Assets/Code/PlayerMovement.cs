@@ -3,8 +3,8 @@
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    [SerializeField] private Vector2 startPos;
-    public Vector3 velocity;
+    private Vector2 startPos;
+    private Vector3 velocity;
     [SerializeField] public float jumpHeight = 15;
     [SerializeField] public float fallVelocity = 15;
     [SerializeField] public float walkAcceleration = 25;
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    void Start()
+    public void Start()
     {
         if (rb == null)
         {
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         startPos = transform.position;
     }
 
-    void Update()
+    public virtual void Update()
     {
         float moveInput = Input.GetAxisRaw("Horizontal");
 
@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(velocity * Time.deltaTime);
     }
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         hitDown = Physics2D.Raycast(transform.position, Vector2.down, 0.6f);
 
