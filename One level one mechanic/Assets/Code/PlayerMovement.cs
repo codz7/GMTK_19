@@ -3,12 +3,18 @@
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    public Vector3 movementVector;
+    public Vector3 velocity;
     [SerializeField] public float jumpHeight = 5;
-    [SerializeField] public float fallVelocity = -10;
-    public bool inAir = true;
+    [SerializeField] public float fallVelocity = 10;
+    [SerializeField] public float walkAcceleration = 5;
+    [SerializeField] public float speed = 10;
+    [SerializeField] public float groundDeceleration = 15;
+    public bool grounded = false;
 
-    public bool Move_DEBUG;
+    private RaycastHit2D hitLeft;
+    private RaycastHit2D hitUp;
+    private RaycastHit2D hitRight;
+    private RaycastHit2D hitDown;
 
     void Start()
     {
@@ -18,39 +24,72 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D obj)
-    {
-        if(obj.collider.transform.position.y < transform.position.y)
-        {
-            inAir = false;
-        }
-    }
-
     void Update()
     {
-        movementVector = Vector2.zero;
-        
-        if (Mathf.Abs(Input.GetAxis("Horizontal")) != 0)
+        float moveInput = Input.GetAxisRaw("Horizontal");
+
+        if (moveInput != 0)
         {
-            movementVector.x += Input.GetAxis("Horizontal") * Time.deltaTime;
-            Move_DEBUG = true;
+            velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInput, walkAcceleration * Time.deltaTime);
         }
         else
         {
-            Move_DEBUG = false;
+            velocity.x = Mathf.MoveTowards(velocity.x, 0, groundDeceleration * Time.deltaTime);
         }
 
-        if (!inAir && Input.GetButtonDown("Jump"))
+        if (grounded && Input.GetButtonDown("Jump"))
         {
-            inAir = true;
-            movementVector.y = jumpHeight;
+            velocity.y = Mathf.Sqrt(jumpHeight * Mathf.Abs(Physics2D.gravity.y));
+            grounded = false;
         }
 
-        if(inAir)
+        if(!grounded)
         {
-            movementVector.y += fallVelocity * Time.deltaTime;
+            velocity.y += Physics2D.gravity.y * Time.deltaTime;
         }
 
-        transform.position += movementVector;
+        transform.Translate(velocity * Time.deltaTime);
     }
+
+    void FixedUpdate()
+    {
+        hitDown = Physics2D.Raycast(transform.position, Vector2.down, 0.6f);
+
+        if(hitDown.collider != null && hitDown.distance < 1.0f)
+        {
+            grounded = true;
+            velocity.y = 0;
+        }
+        else
+        {
+            grounded = false;
+        }
+
+        hitUp = Physics2D.Raycast(transform.position, Vector2.up, 0.5f);
+
+        if (hitUp.collider != null && hitUp.distance < 1.0f)
+        {
+            velocity.y = 0;
+        }
+
+        hitRight = Physics2D.Raycast(transform.position, Vector2.right, 0.5f);
+
+        if (hitRight.collider != null && hitRight.distance < 1.0f)
+        {
+            velocity.x = 0;
+        }
+
+        hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.5f);
+
+        if (hitLeft.collider != null && hitLeft.distance < 1.0f)
+        {
+            velocity.x = 0;
+        }
+    }
+
+    void Death()
+    {
+        transform.position = Vector3.zero;
+    }
+
 }
