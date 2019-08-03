@@ -1,15 +1,15 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Helicopter : MonoBehaviour
 {
     Rigidbody2D rb;
     private Vector3 velocity;
-    [SerializeField] public float jumpHeight = 15;
     [SerializeField] public float fallVelocity = 15;
-    [SerializeField] public float walkAcceleration = 25;
+    [SerializeField] public float acceleration = 25;
     [SerializeField] public float speed = 7;
-    [SerializeField] public float groundDeceleration = 25;
-    [SerializeField] public float airMovementAdjuster = 0.7f;
+    [SerializeField] public float deceleration = 25;
     [SerializeField] public Animator animator;
     public bool grounded = false;
 
@@ -28,44 +28,35 @@ public class PlayerMovement : MonoBehaviour
 
     public virtual void Update()
     {
-        float moveInput = Input.GetAxisRaw("Horizontal");
+        
 
-        if (moveInput != 0)
+        if (Input.GetButton("Fire1"))
         {
-            if (grounded)
+            rb.gravityScale = 0;
+
+            velocity.y = Mathf.MoveTowards(velocity.y, speed, acceleration * Time.deltaTime);
+
+            Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousepos = new Vector3(mousepos.x, mousepos.y, 0);
+
+            if (mousepos.x > transform.position.x)
             {
-                velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInput, walkAcceleration * Time.deltaTime);
+                velocity.x = Mathf.MoveTowards(velocity.x, speed, acceleration * Time.deltaTime);
             }
             else
             {
-                velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInput, airMovementAdjuster * walkAcceleration * Time.deltaTime);
+                velocity.x = Mathf.MoveTowards(velocity.x, speed * -1, acceleration * Time.deltaTime);
             }
         }
         else
         {
-            velocity.x = Mathf.MoveTowards(velocity.x, 0, groundDeceleration * Time.deltaTime);
-        }
+            if (!grounded)
+            {
+                rb.gravityScale = 1;
+                velocity.y += Physics2D.gravity.y * Time.deltaTime;
+            }
 
-        if (grounded && Input.GetButtonDown("Jump"))
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * Mathf.Abs(Physics2D.gravity.y));
-            grounded = false;
-        }
-
-        if(!grounded)
-        {
-            velocity.y += Physics2D.gravity.y * Time.deltaTime;
-        }
-
-        if (velocity != Vector3.zero)
-        {
-            animator.SetTrigger("Run");
-            animator.ResetTrigger("Idle");
-        }
-        else
-        {
-            animator.SetTrigger("Idle");
-            animator.ResetTrigger("Run");
+            velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
         }
 
         transform.Translate(velocity * Time.deltaTime);
@@ -75,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
     {
         hitDown = Physics2D.Raycast(transform.position, Vector2.down, 0.6f);
 
-        if(hitDown.collider != null && hitDown.distance < 1.0f)
+        if (hitDown.collider != null && hitDown.distance < 1.0f)
         {
             grounded = true;
             velocity.y = 0;

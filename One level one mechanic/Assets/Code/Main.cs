@@ -10,6 +10,7 @@ public class Main : MonoBehaviour
     private int m_currentLevel = 0;
 
     private GameObject m_activeLevel;
+    private int m_remainingCheckpoints;
 
     public void Awake()
     {
@@ -19,6 +20,11 @@ public class Main : MonoBehaviour
 
     public void NextLevel()
     {
+        if (m_remainingCheckpoints > 0)
+        {
+            return;
+        }
+
         Destroy(m_activeLevel);
         m_currentLevel++;
 
@@ -31,6 +37,16 @@ public class Main : MonoBehaviour
             m_activeLevel = Instantiate(m_levels[m_currentLevel]);
             m_activeLevel.GetComponentInChildren<Goal>().SetMain(this);
         }
+    }
+
+    public void AddCheckpoint()
+    {
+        m_remainingCheckpoints++;
+    }
+
+    public void RemoveCheckpoint()
+    {
+        m_remainingCheckpoints--;
     }
 
     private void GameEnd()

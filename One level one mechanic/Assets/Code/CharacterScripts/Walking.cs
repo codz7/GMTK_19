@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Walking : MonoBehaviour
 {
     Rigidbody2D rb;
+    private Vector2 startPos;
     private Vector3 velocity;
-    [SerializeField] public float jumpHeight = 15;
     [SerializeField] public float fallVelocity = 15;
     [SerializeField] public float walkAcceleration = 25;
     [SerializeField] public float speed = 7;
@@ -24,21 +26,21 @@ public class PlayerMovement : MonoBehaviour
         {
             rb = GetComponent<Rigidbody2D>();
         }
+
+        startPos = transform.position;
     }
 
     public virtual void Update()
     {
-        float moveInput = Input.GetAxisRaw("Horizontal");
-
-        if (moveInput != 0)
+        if (Input.GetButton("Fire1"))
         {
             if (grounded)
             {
-                velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInput, walkAcceleration * Time.deltaTime);
+                velocity.x = Mathf.MoveTowards(velocity.x, speed, walkAcceleration * Time.deltaTime);
             }
             else
             {
-                velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInput, airMovementAdjuster * walkAcceleration * Time.deltaTime);
+                velocity.x = Mathf.MoveTowards(velocity.x, speed, airMovementAdjuster * walkAcceleration * Time.deltaTime);
             }
         }
         else
@@ -46,13 +48,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.x = Mathf.MoveTowards(velocity.x, 0, groundDeceleration * Time.deltaTime);
         }
 
-        if (grounded && Input.GetButtonDown("Jump"))
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * Mathf.Abs(Physics2D.gravity.y));
-            grounded = false;
-        }
-
-        if(!grounded)
+        if (!grounded)
         {
             velocity.y += Physics2D.gravity.y * Time.deltaTime;
         }
@@ -75,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     {
         hitDown = Physics2D.Raycast(transform.position, Vector2.down, 0.6f);
 
-        if(hitDown.collider != null && hitDown.distance < 1.0f)
+        if (hitDown.collider != null && hitDown.distance < 1.0f)
         {
             grounded = true;
             velocity.y = 0;

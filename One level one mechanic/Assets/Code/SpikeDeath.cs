@@ -6,7 +6,7 @@ public class SpikeDeath : MonoBehaviour
     {
         if (collision.otherCollider.gameObject.tag == "Spike")
         {
-            Destroy(gameObject);
+            GetComponent<ResetPosition>().ResetPlayerPosition();
         }
     }
 }
