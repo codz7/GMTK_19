@@ -3,12 +3,14 @@
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
+    [SerializeField] private Vector2 startPos;
     public Vector3 velocity;
-    [SerializeField] public float jumpHeight = 5;
-    [SerializeField] public float fallVelocity = 10;
-    [SerializeField] public float walkAcceleration = 5;
-    [SerializeField] public float speed = 10;
-    [SerializeField] public float groundDeceleration = 15;
+    [SerializeField] public float jumpHeight = 15;
+    [SerializeField] public float fallVelocity = 15;
+    [SerializeField] public float walkAcceleration = 25;
+    [SerializeField] public float speed = 7;
+    [SerializeField] public float groundDeceleration = 25;
+    [SerializeField] public float airMovementAdjuster = 0.7f;
     public bool grounded = false;
 
     private RaycastHit2D hitLeft;
@@ -16,12 +18,16 @@ public class PlayerMovement : MonoBehaviour
     private RaycastHit2D hitRight;
     private RaycastHit2D hitDown;
 
+
+
+
     void Start()
     {
         if (rb == null)
         {
             rb = GetComponent<Rigidbody2D>();
         }
+        startPos = transform.position;
     }
 
     void Update()
@@ -30,7 +36,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveInput != 0)
         {
-            velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInput, walkAcceleration * Time.deltaTime);
+            if (grounded)
+            {
+                velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInput, walkAcceleration * Time.deltaTime);
+            }
+            else
+            {
+                velocity.x = Mathf.MoveTowards(velocity.x, speed * moveInput, airMovementAdjuster * walkAcceleration * Time.deltaTime);
+            }
         }
         else
         {
@@ -89,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Death()
     {
-        transform.position = Vector3.zero;
+        transform.position = startPos;
     }
 
 }
