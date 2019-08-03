@@ -1,36 +1,56 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     Rigidbody2D rb;
+    public Vector3 movementVector;
+    [SerializeField] public float jumpHeight = 5;
+    [SerializeField] public float fallVelocity = -10;
+    public bool inAir = true;
+
+    public bool Move_DEBUG;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
     }
 
-    // Update is called once per frame
+    void OnCollisionEnter2D(Collision2D obj)
+    {
+        if(obj.collider.transform.position.y < transform.position.y)
+        {
+            inAir = false;
+        }
+    }
+
     void Update()
     {
-        if(Input.GetAxis("Horizontal") < 0)
+        movementVector = Vector2.zero;
+        
+        if (Mathf.Abs(Input.GetAxis("Horizontal")) != 0)
         {
-            rb.velocity = -Vector2.right;
-        }
-        else if (Input.GetAxis("Horizontal") > 0)
-        {
-            rb.velocity = Vector2.right;
+            movementVector.x += Input.GetAxis("Horizontal") * Time.deltaTime;
+            Move_DEBUG = true;
         }
         else
         {
-            rb.velocity = Vector2.zero;
+            Move_DEBUG = false;
         }
 
-        if (Input.GetAxis("Jump") > 0)
+        if (!inAir && Input.GetButtonDown("Jump"))
         {
-            rb.velocity = (Vector2.up);
+            inAir = true;
+            movementVector.y = jumpHeight;
         }
+
+        if(inAir)
+        {
+            movementVector.y += fallVelocity * Time.deltaTime;
+        }
+
+        transform.position += movementVector;
     }
 }
