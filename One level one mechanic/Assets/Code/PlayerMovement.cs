@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float speed = 7;
     [SerializeField] public float groundDeceleration = 25;
     [SerializeField] public float airMovementAdjuster = 0.7f;
+    [SerializeField] public Animator animator;
     public bool grounded = false;
 
     private RaycastHit2D hitLeft;
@@ -59,6 +60,17 @@ public class PlayerMovement : MonoBehaviour
         if(!grounded)
         {
             velocity.y += Physics2D.gravity.y * Time.deltaTime;
+        }
+
+        if (velocity != Vector3.zero)
+        {
+            animator.SetTrigger("Run");
+            animator.ResetTrigger("Idle");
+        }
+        else
+        {
+            animator.SetTrigger("Idle");
+            animator.ResetTrigger("Run");
         }
 
         transform.Translate(velocity * Time.deltaTime);
