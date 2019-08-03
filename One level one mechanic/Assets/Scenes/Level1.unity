@@ -2288,7 +2288,7 @@ PrefabInstance:
     - target: {fileID: 4417747617474918721, guid: b77bb1f5879656641bb7c8277b9feba3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1514878487669509686, guid: b77bb1f5879656641bb7c8277b9feba3,
         type: 3}
@@ -2490,7 +2490,7 @@ PrefabInstance:
     - target: {fileID: 7845606867159284571, guid: b77bb1f5879656641bb7c8277b9feba3,
         type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7845606867159284571, guid: b77bb1f5879656641bb7c8277b9feba3,
         type: 3}
@@ -10157,17 +10157,17 @@ PrefabInstance:
     - target: {fileID: 7799740954673652294, guid: 8e3b4cd4bc7e1c047a2fa51465a9fb23,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.9715577
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7799740954673652294, guid: 8e3b4cd4bc7e1c047a2fa51465a9fb23,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4981419
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7799740954673652294, guid: 8e3b4cd4bc7e1c047a2fa51465a9fb23,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.332031
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7799740954673652294, guid: 8e3b4cd4bc7e1c047a2fa51465a9fb23,
         type: 3}
