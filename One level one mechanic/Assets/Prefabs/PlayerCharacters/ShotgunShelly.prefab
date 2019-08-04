@@ -97,6 +97,7 @@ MonoBehaviour:
   knockback: 15
   fallVelocity: 7
   groundDeceleration: 25
+  spriteRenderer: {fileID: 5354025383777264289}
   grounded: 0
 --- !u!1001 &8833113051062891788
 PrefabInstance:
@@ -185,26 +186,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 12.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4654444993870285304, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4117179634683664817, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4117179634683664817, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4117179634683664817, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3519796467702142893, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
         type: 3}
       propertyPath: m_Sprite
@@ -226,6 +207,26 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4654444993870285304, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117179634683664817, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117179634683664817, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117179634683664817, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 606836058290050206, guid: 375100fdb21a1164c9bd55fa1fcde0b1, type: 3}
     - {fileID: 4654444993870285304, guid: 375100fdb21a1164c9bd55fa1fcde0b1, type: 3}
@@ -239,6 +240,12 @@ GameObject:
 --- !u!4 &4180022747927395575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4654444993870285307, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8833113051062891788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5354025383777264289 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3519796467702142893, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
     type: 3}
   m_PrefabInstance: {fileID: 8833113051062891788}
   m_PrefabAsset: {fileID: 0}
