@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41fdc7e6a41568f42a97491b5f5f7fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallVelocity: 15
+  fallVelocity: 5
   walkAcceleration: 25
-  speed: 7
+  speed: 5
   groundDeceleration: 25
-  airMovementAdjuster: 0.7
+  airMovementAdjuster: 0.5
   animator: {fileID: 2930712345615225121}
   grounded: 0
 --- !u!1001 &2359905410770109887

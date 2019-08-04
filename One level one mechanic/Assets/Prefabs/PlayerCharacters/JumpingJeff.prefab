@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eeb8d9b565b1af4095cea872febf93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 15
-  fallVelocity: 15
-  deceleration: 3
+  jumpHeight: 20
+  fallVelocity: 5
+  deceleration: 10
   animator: {fileID: 1319721697093790824}
   grounded: 0
 --- !u!1001 &1890242775801166070

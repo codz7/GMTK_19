@@ -50,7 +50,7 @@ public class Walking : MonoBehaviour
 
         if (!grounded)
         {
-            velocity.y += Physics2D.gravity.y * Time.deltaTime;
+            velocity.y += Physics2D.gravity.y * Time.deltaTime * fallVelocity;
         }
 
         if (velocity != Vector3.zero)

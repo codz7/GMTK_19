@@ -7,7 +7,7 @@ public class Jumping : MonoBehaviour
     Rigidbody2D rb;
     private Vector3 velocity;
     [SerializeField] public float jumpHeight = 15;
-    [SerializeField] public float fallVelocity = 15;
+    [SerializeField] public float fallVelocity = 10;
     [SerializeField] public float deceleration = 3;
     [SerializeField] public Animator animator;
     public bool grounded = false;
@@ -37,7 +37,7 @@ public class Jumping : MonoBehaviour
 
         if (!grounded)
         {
-            velocity.y += Physics2D.gravity.y * Time.deltaTime;
+            velocity.y += Physics2D.gravity.y * Time.deltaTime * fallVelocity;
             charging = false;
         }
 
