@@ -18,7 +18,7 @@ MonoBehaviour:
   deceleration: 25
   dashDecrease: 100
   dashTimer: 0.15
-  animator: {fileID: 0}
+  animator: {fileID: 7185678369955443918}
   grounded: 0
   canDash: 1
   dashCooldown: 0

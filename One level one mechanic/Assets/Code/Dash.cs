@@ -50,6 +50,8 @@ public class Dash : MonoBehaviour
 
         if (dashVelocity.sqrMagnitude > 0)
         {
+            animator.SetTrigger("Dash");
+            animator.ResetTrigger("Idle");
             dashVelocity.x = Mathf.MoveTowards(dashVelocity.x, 0, dashDecrease * Time.deltaTime);
             dashVelocity.y = Mathf.MoveTowards(dashVelocity.y, 0, dashDecrease * Time.deltaTime);
             dashVelocity.z = 0;
@@ -57,6 +59,9 @@ public class Dash : MonoBehaviour
         }
         else
         {
+            animator.SetTrigger("Idle");
+            animator.ResetTrigger("Dash");
+
             if (!grounded)
             {
                 velocity.y += Physics2D.gravity.y * Time.deltaTime;
