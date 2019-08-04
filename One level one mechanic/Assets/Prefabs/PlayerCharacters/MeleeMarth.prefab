@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 6299900742945075903}
-  knockback: 25
-  fallVelocity: 7
+  knockback: 20
+  fallVelocity: 5
   groundDeceleration: 25
   grounded: 0
 --- !u!1 &6299900742945075903
@@ -58,7 +58,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1160023530093335243}
   - component: {fileID: 4876221671451763567}
-  - component: {fileID: 3938558873228887013}
+  - component: {fileID: 5718922587255189803}
+  - component: {fileID: 1590471548830414726}
   m_Layer: 2
   m_Name: Sword
   m_TagString: Untagged
@@ -129,19 +130,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &3938558873228887013
-BoxCollider:
+--- !u!61 &5718922587255189803
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8393943406147416106}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.053088687, y: -0.005368541}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.14, y: 0.032801505, z: 0}
-  m_Center: {x: -0.02, y: -0.005, z: 0}
+  m_Size: {x: 0.16490944, y: 0.030099893}
+  m_EdgeRadius: 0
+--- !u!114 &1590471548830414726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8393943406147416106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8c14b1686d23b4296123573d8bc62a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  melee: {fileID: 6557710429008851633}
 --- !u!1001 &859334116476509617
 PrefabInstance:
   m_ObjectHideFlags: 0

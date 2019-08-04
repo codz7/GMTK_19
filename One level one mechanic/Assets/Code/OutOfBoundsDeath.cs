@@ -9,7 +9,7 @@ public class OutOfBoundsDeath : MonoBehaviour
 
     void Update()
     {
-        if (Mathf.Abs(transform.position.x) > m_levelWidth || transform.position.y > m_levelHeight)
+        if (Mathf.Abs(transform.position.x) > m_levelWidth || transform.position.y < m_levelHeight * -1)
         {
             GetComponent<ResetPosition>().ResetPlayerPosition();
         }        
