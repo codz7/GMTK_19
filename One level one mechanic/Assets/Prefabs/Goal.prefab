@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6640161072775472938}
   - component: {fileID: 4325397905370077893}
   - component: {fileID: 4906023445548817675}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Goal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,3 +120,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af487320b1c05794ab8da31ab57c76cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_checkpoints: []

@@ -9,7 +9,7 @@ public class Dash : MonoBehaviour
     [SerializeField] public float fallVelocity = 15;
     [SerializeField] public float deceleration = 25;
     [SerializeField] public float dashDecrease = 25;
-    public float dashTimer = 0.15f;
+    [SerializeField] public float dashTimer = 0.15f;
     [SerializeField] public Animator animator;
     public bool grounded = false;
 
