@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
     {
         hitDown = Physics2D.Raycast(transform.position, Vector2.down, 0.6f);
 
-        if(hitDown.collider != null && hitDown.distance < 1.0f)
+        if(hitDown.collider != null)
         {
             grounded = true;
             velocity.y = 0;
@@ -87,21 +87,21 @@ public class PlayerMovement : MonoBehaviour
 
         hitUp = Physics2D.Raycast(transform.position, Vector2.up, 0.5f);
 
-        if (hitUp.collider != null && hitUp.distance < 1.0f)
+        if (hitUp.collider != null)
         {
             velocity.y = 0;
         }
 
         hitRight = Physics2D.Raycast(transform.position, Vector2.right, 0.5f);
 
-        if (hitRight.collider != null && hitRight.distance < 1.0f)
+        if (hitRight.collider != null)
         {
             velocity.x = 0;
         }
 
         hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.5f);
 
-        if (hitLeft.collider != null && hitLeft.distance < 1.0f)
+        if (hitLeft.collider != null)
         {
             velocity.x = 0;
         }
