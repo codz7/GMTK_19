@@ -1,23 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &6145965793452916258
+--- !u!114 &3776162144628626599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6533760737009709322}
+  m_GameObject: {fileID: 4605656637728951468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eeb8d9b565b1af4095cea872febf93f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b8c62088d4893f4ebe5929ce1c60f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 20
-  fallVelocity: 5
-  deceleration: 30
-  animator: {fileID: 1319721697093790824}
-  grounded: 0
---- !u!1001 &1890242775801166070
+--- !u!114 &2015986465139629372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4605656637728951468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c77800c9ad9204e9de11d495bed28e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallSpeed: 10
+--- !u!1001 &9186636531681117520
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -27,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 4654444993870285308, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
         type: 3}
       propertyPath: m_Name
-      value: JumpingJeff
+      value: FallingFalynn
       objectReference: {fileID: 0}
     - target: {fileID: 4654444993870285307, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
         type: 3}
@@ -87,15 +95,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4654444993870285304, guid: 375100fdb21a1164c9bd55fa1fcde0b1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 375100fdb21a1164c9bd55fa1fcde0b1, type: 3}
---- !u!1 &6533760737009709322 stripped
+--- !u!1 &4605656637728951468 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4654444993870285308, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
     type: 3}
-  m_PrefabInstance: {fileID: 1890242775801166070}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1319721697093790824 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 606836058290050206, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1890242775801166070}
+  m_PrefabInstance: {fileID: 9186636531681117520}
   m_PrefabAsset: {fileID: 0}

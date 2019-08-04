@@ -28,14 +28,16 @@ public class Jumping : MonoBehaviour
 
     public virtual void Update()
     {
-        velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
-
-        if (grounded && Input.GetButtonDown("Fire1"))
+        if (grounded)
         {
-            charging = true;
-        }
+            velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
 
-        if (!grounded)
+            if (Input.GetButtonDown("Fire1"))
+            {
+                charging = true;
+            }
+        }
+        else
         {
             velocity.y += Physics2D.gravity.y * Time.deltaTime * fallVelocity;
             charging = false;

@@ -32,10 +32,7 @@ public class Helicopter : MonoBehaviour
 
         if (Input.GetButton("Fire1"))
         {
-            rb.gravityScale = 0;
-
             velocity.y = Mathf.MoveTowards(velocity.y, speed, acceleration * Time.deltaTime);
-
             Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousepos = new Vector3(mousepos.x, mousepos.y, 0);
 
@@ -52,7 +49,6 @@ public class Helicopter : MonoBehaviour
         {
             if (!grounded)
             {
-                rb.gravityScale = 1;
                 velocity.y += Physics2D.gravity.y * Time.deltaTime;
             }
 

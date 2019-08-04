@@ -9,7 +9,6 @@ public class Hookshot : MonoBehaviour
 
     Rigidbody2D rb;
     private Vector3 velocity;
-    public bool grounded = false;
     private bool hooking = false;
     private RaycastHit2D hitLeft;
     private RaycastHit2D hitUp;
@@ -65,7 +64,6 @@ public class Hookshot : MonoBehaviour
 
         if (hitDown.collider != null && hitDown.distance < 1.0f)
         {
-            grounded = true;
             velocity.y = 0;
             hooking = false;
         }
