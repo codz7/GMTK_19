@@ -20,6 +20,8 @@ public class Main : MonoBehaviour
 
     public void NextLevel()
     {
+        Debug.Log("remaing checks: " + m_remainingCheckpoints);
+
         if (m_remainingCheckpoints > 0)
         {
             return;
@@ -41,16 +43,19 @@ public class Main : MonoBehaviour
 
     public void AddCheckpoint()
     {
+        Debug.Log("Add checkpoint");
         m_remainingCheckpoints++;
     }
 
     public void RemoveCheckpoint()
     {
+        Debug.Log("remove checkpoint");
         m_remainingCheckpoints--;
     }
 
     public void ResetLevel()
     {
+        m_remainingCheckpoints = 0;
         Destroy(m_activeLevel);
         m_activeLevel = Instantiate(m_levels[m_currentLevel]);
         m_activeLevel.GetComponentInChildren<Goal>().SetMain(this);

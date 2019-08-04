@@ -13,6 +13,7 @@ public class Goal : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
+            Debug.Log("Goal!");
             m_main.NextLevel();
         }
     }
