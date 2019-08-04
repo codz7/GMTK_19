@@ -11,6 +11,7 @@ public class Helicopter : MonoBehaviour
     [SerializeField] public float speed = 7;
     [SerializeField] public float deceleration = 25;
     [SerializeField] public Animator animator;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     public bool grounded = false;
 
     private RaycastHit2D hitLeft;
@@ -56,6 +57,15 @@ public class Helicopter : MonoBehaviour
         }
 
         transform.Translate(velocity * Time.deltaTime);
+
+        if (velocity.x > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (velocity.x < 0)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     public void FixedUpdate()
