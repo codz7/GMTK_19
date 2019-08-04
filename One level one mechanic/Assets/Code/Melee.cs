@@ -10,6 +10,7 @@ public class Melee : MonoBehaviour
     [SerializeField] private float knockback = 10;
     [SerializeField] public float fallVelocity = 15;
     [SerializeField] public float groundDeceleration = 25;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     public bool grounded = false;
 
     private RaycastHit2D hitLeft;
@@ -53,6 +54,15 @@ public class Melee : MonoBehaviour
         float AngleRad = Mathf.Atan2(sword.transform.position.y - mousepos.y, sword.transform.position.x - mousepos.x);
         float AngleDeg = (180 / Mathf.PI) * AngleRad;
         sword.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+
+        if (mousepos.x > transform.position.x)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (mousepos.x < transform.position.x)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     public void FixedUpdate()

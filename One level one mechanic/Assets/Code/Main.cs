@@ -39,7 +39,7 @@ public class Main : MonoBehaviour
 
             if (goal != null)
             {
-                m_activeLevel.GetComponentInChildren<Goal>().SetMain(this);
+                goal.SetMain(this);
             }            
         }
     }
@@ -59,7 +59,12 @@ public class Main : MonoBehaviour
         m_remainingCheckpoints = 0;
         Destroy(m_activeLevel);
         m_activeLevel = Instantiate(m_levels[m_currentLevel]);
-        m_activeLevel.GetComponentInChildren<Goal>().SetMain(this);
+        Goal goal = m_activeLevel.GetComponentInChildren<Goal>();
+
+        if (goal != null)
+        {
+            goal.SetMain(this);
+        }
     }
 
     private void GameEnd()

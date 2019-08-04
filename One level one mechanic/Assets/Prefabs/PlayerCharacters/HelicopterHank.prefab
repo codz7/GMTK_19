@@ -87,6 +87,7 @@ MonoBehaviour:
   speed: 7
   deceleration: 15
   animator: {fileID: 0}
+  spriteRenderer: {fileID: 5441063876671127866}
   grounded: 0
 --- !u!1001 &8888521240428336791
 PrefabInstance:
@@ -209,6 +210,12 @@ GameObject:
 --- !u!4 &4309302686928674668 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4654444993870285307, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8888521240428336791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5441063876671127866 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3519796467702142893, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
     type: 3}
   m_PrefabInstance: {fileID: 8888521240428336791}
   m_PrefabAsset: {fileID: 0}
