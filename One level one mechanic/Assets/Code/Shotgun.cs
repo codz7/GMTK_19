@@ -37,12 +37,13 @@ public class Shotgun : MonoBehaviour
 
     private void Update()
     {
+        mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousepos = new Vector3(mousepos.x, mousepos.y, 0);
+        direction = (mousepos - shotgun.transform.position).normalized;
+
         if (Input.GetButtonDown("Fire1"))
         {
-            mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousepos = new Vector3(mousepos.x, mousepos.y, 0);
             Debug.DrawLine(shotgun.transform.position, mousepos);
-            direction = (mousepos - shotgun.transform.position).normalized;
             velocity = direction * knockback * -1;
             RaycastHit2D shotgunRay = Physics2D.Raycast(shotgun.transform.position, direction, rayRange);
 
@@ -59,6 +60,11 @@ public class Shotgun : MonoBehaviour
 
         velocity.x = Mathf.MoveTowards(velocity.x, 0, groundDeceleration * Time.deltaTime);
         transform.Translate(velocity * Time.deltaTime);
+
+        float AngleRad = Mathf.Atan2(mousepos.y - shotgun.transform.position.y, mousepos.x - shotgun.transform.position.x);
+        float AngleDeg = (180 / Mathf.PI) * AngleRad;
+        shotgun.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+        
     }
 
     public void FixedUpdate()
