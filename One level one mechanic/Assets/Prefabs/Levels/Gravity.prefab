@@ -148,6 +148,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7112557373634236605}
     m_Modifications:
+    - target: {fileID: 888640881512186302, guid: 77b4e79ebf61ce64cb8515699d116f54,
+        type: 3}
+      propertyPath: m_Name
+      value: Goal
+      objectReference: {fileID: 0}
     - target: {fileID: 6046681317063982200, guid: 77b4e79ebf61ce64cb8515699d116f54,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -202,11 +207,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 888640881512186302, guid: 77b4e79ebf61ce64cb8515699d116f54,
-        type: 3}
-      propertyPath: m_Name
-      value: Goal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77b4e79ebf61ce64cb8515699d116f54, type: 3}
@@ -283,10 +283,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4073161845145789100, guid: c1b301bf12950344494412d969889487,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4840445075135348904, guid: c1b301bf12950344494412d969889487,
         type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[1].Array.size
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4840445075135348904, guid: c1b301bf12950344494412d969889487,
         type: 3}
@@ -11648,11 +11653,6 @@ PrefabInstance:
       propertyPath: m_TileAssetArray.Array.data[4].m_Data
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 4073161845145789100, guid: c1b301bf12950344494412d969889487,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b301bf12950344494412d969889487, type: 3}
 --- !u!4 &6987982514983358307 stripped
@@ -11777,16 +11777,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9010246629280339346, guid: 295ce5a97c6a1d040ae296fa831d8a2d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 249.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9010246629280339346, guid: 295ce5a97c6a1d040ae296fa831d8a2d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 393.8
       objectReference: {fileID: 0}
     - target: {fileID: 5680817239128448291, guid: 295ce5a97c6a1d040ae296fa831d8a2d,
         type: 3}

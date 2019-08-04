@@ -260,21 +260,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9010246629280339346, guid: 295ce5a97c6a1d040ae296fa831d8a2d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 389.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 9010246629280339346, guid: 295ce5a97c6a1d040ae296fa831d8a2d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 248.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 9010246629280339346, guid: 295ce5a97c6a1d040ae296fa831d8a2d,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 195.63
-      objectReference: {fileID: 0}
     - target: {fileID: 5680817239128448291, guid: 295ce5a97c6a1d040ae296fa831d8a2d,
         type: 3}
       propertyPath: m_Text
@@ -375,6 +360,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5599510952352674066}
     m_Modifications:
+    - target: {fileID: 888640881512186302, guid: 77b4e79ebf61ce64cb8515699d116f54,
+        type: 3}
+      propertyPath: m_Name
+      value: Goal
+      objectReference: {fileID: 0}
     - target: {fileID: 6046681317063982200, guid: 77b4e79ebf61ce64cb8515699d116f54,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -430,11 +420,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 888640881512186302, guid: 77b4e79ebf61ce64cb8515699d116f54,
-        type: 3}
-      propertyPath: m_Name
-      value: Goal
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77b4e79ebf61ce64cb8515699d116f54, type: 3}
 --- !u!4 &8951206467843422980 stripped
@@ -450,6 +435,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5599510952352674066}
     m_Modifications:
+    - target: {fileID: 4309302686928674667, guid: 055d1d14a750de946a4c141d97a3d70f,
+        type: 3}
+      propertyPath: m_Name
+      value: HelicopterHank
+      objectReference: {fileID: 0}
     - target: {fileID: 4309302686928674668, guid: 055d1d14a750de946a4c141d97a3d70f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -504,11 +494,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4309302686928674667, guid: 055d1d14a750de946a4c141d97a3d70f,
-        type: 3}
-      propertyPath: m_Name
-      value: HelicopterHank
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 055d1d14a750de946a4c141d97a3d70f, type: 3}
