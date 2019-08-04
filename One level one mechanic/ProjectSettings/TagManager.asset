@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spikes
   - Enemies
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
