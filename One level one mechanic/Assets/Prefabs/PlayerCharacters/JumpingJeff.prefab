@@ -16,6 +16,7 @@ MonoBehaviour:
   fallVelocity: 5
   deceleration: 30
   animator: {fileID: 3150392429214841212}
+  spriteRenderer: {fileID: 3090500648667443035}
   grounded: 0
 --- !u!95 &3150392429214841212
 Animator:
@@ -150,6 +151,12 @@ GameObject:
 --- !u!1 &9144641349957882231 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7265211171516901761, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1890242775801166070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3090500648667443035 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3519796467702142893, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
     type: 3}
   m_PrefabInstance: {fileID: 1890242775801166070}
   m_PrefabAsset: {fileID: 0}
