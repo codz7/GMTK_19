@@ -6,6 +6,7 @@ public class Hookshot : MonoBehaviour
 {
     [SerializeField] public float speed = 7;
     [SerializeField] public float range = 15;
+    [SerializeField] private GameObject magnet;
 
     Rigidbody2D rb;
     private Vector3 velocity;
@@ -19,6 +20,7 @@ public class Hookshot : MonoBehaviour
     private Vector2 m_hookTarget;
     private float m_startTime;
     private float m_journeyLength;
+    private GameObject activeMagnet;
 
     public void Start()
     {
@@ -40,11 +42,19 @@ public class Hookshot : MonoBehaviour
 
             if (hitHook.collider != null)
             {
+                if (activeMagnet != null)
+                {
+                    Destroy(activeMagnet);
+                }
+
                 hooking = true;
                 m_startPoint = transform.position;
                 m_hookTarget = hitHook.point;
                 m_journeyLength = Vector2.Distance(transform.position, hitHook.point);
                 m_startTime = Time.time;
+
+                activeMagnet = Instantiate(magnet);
+                activeMagnet.transform.position = m_hookTarget;
             }
         }
     }
