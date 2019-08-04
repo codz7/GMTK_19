@@ -48,12 +48,9 @@ MonoBehaviour:
   - {fileID: 5101638587381696109, guid: b1ff9d30da4a73a449f6b8ff489bf799, type: 3}
   - {fileID: 7349424287086036581, guid: df39a39c0fd5ba645a17f4c1a3fbf86d, type: 3}
   - {fileID: 6657588190719426336, guid: 555e4e3b0b5e2654c9e11e39aeba4573, type: 3}
-  - {fileID: 2084031798175022963, guid: 03b87462dedb5b144ba59824845ac3c8, type: 3}
   - {fileID: 5404305015546996682, guid: 7d899f5e75824c54d9a3265c0c6184bb, type: 3}
   - {fileID: 4931994709634487368, guid: d7dfcdf9d926ce742a9f8c0072c408e0, type: 3}
   - {fileID: 2621413775992538075, guid: 649fa3e7fa3f82741b44de97464a0ead, type: 3}
-  - {fileID: 173493751907395624, guid: 7e5d5906f2dbd1643bce0eaebd923851, type: 3}
   - {fileID: 4707545682025791547, guid: 7ef2b7c0451a7394c9cb284b7a87d5a8, type: 3}
   - {fileID: 5370826012485545090, guid: 61a26dff4069c3e45824afea00e44888, type: 3}
-  - {fileID: 2251589361313631698, guid: fe7cc48e6cf1cdc429816cdd4e2ddfbd, type: 3}
   m_currentLevel: 0
