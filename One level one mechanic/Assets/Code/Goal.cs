@@ -19,7 +19,6 @@ public class Goal : MonoBehaviour
 
     public void SetMain(Main main)
     {
-        Debug.Log("Main Set");
         m_main = main;
 
         foreach (var checkpoint in m_checkpoints)
