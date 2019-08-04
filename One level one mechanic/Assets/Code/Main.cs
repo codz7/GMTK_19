@@ -49,6 +49,13 @@ public class Main : MonoBehaviour
         m_remainingCheckpoints--;
     }
 
+    public void ResetLevel()
+    {
+        Destroy(m_activeLevel);
+        m_activeLevel = Instantiate(m_levels[m_currentLevel]);
+        m_activeLevel.GetComponentInChildren<Goal>().SetMain(this);
+    }
+
     private void GameEnd()
     {
 
