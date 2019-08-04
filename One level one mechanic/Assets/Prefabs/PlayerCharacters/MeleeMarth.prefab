@@ -16,6 +16,7 @@ MonoBehaviour:
   knockback: 20
   fallVelocity: 5
   groundDeceleration: 25
+  spriteRenderer: {fileID: 4266074253897189916}
   grounded: 0
 --- !u!1 &6299900742945075903
 GameObject:
@@ -285,6 +286,12 @@ GameObject:
 --- !u!4 &5438974908271891530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4654444993870285307, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 859334116476509617}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4266074253897189916 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3519796467702142893, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
     type: 3}
   m_PrefabInstance: {fileID: 859334116476509617}
   m_PrefabAsset: {fileID: 0}

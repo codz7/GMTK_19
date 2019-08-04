@@ -10,6 +10,7 @@ public class Jumping : MonoBehaviour
     [SerializeField] public float fallVelocity = 10;
     [SerializeField] public float deceleration = 3;
     [SerializeField] public Animator animator;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     public bool grounded = false;
 
     private RaycastHit2D hitLeft;
@@ -65,6 +66,15 @@ public class Jumping : MonoBehaviour
         }
 
         transform.Translate(velocity * Time.deltaTime);
+
+        if (velocity.x > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (velocity.x < 0)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     public void FixedUpdate()

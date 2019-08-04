@@ -1,20 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Hookshot : MonoBehaviour
 {
     [SerializeField] public float speed = 7;
-    [SerializeField] public float range = 15;
+    [SerializeField] public float range = 150;
     [SerializeField] private GameObject magnet;
 
     Rigidbody2D rb;
     private Vector3 velocity;
-    private bool hooking = false;
+    public bool hooking = false;
     private RaycastHit2D hitLeft;
     private RaycastHit2D hitUp;
     private RaycastHit2D hitRight;
     private RaycastHit2D hitDown;
+    private RaycastHit2D hitUpleft;
+    private RaycastHit2D hitDownleft;
+    private RaycastHit2D hitUpRight;
+    private RaycastHit2D hitDownRight;
     private Vector3 mousepos;
     private Vector2 m_startPoint;
     private Vector2 m_hookTarget;
@@ -24,6 +26,8 @@ public class Hookshot : MonoBehaviour
 
     public void Start()
     {
+        range = 150;
+
         if (rb == null)
         {
             rb = GetComponent<Rigidbody2D>();
@@ -36,11 +40,11 @@ public class Hookshot : MonoBehaviour
         {
             mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousepos = new Vector3(mousepos.x, mousepos.y, 0);
-            Debug.DrawLine(transform.position, mousepos);
+            Debug.DrawLine(transform.position, mousepos, Color.cyan, 3);
             Vector2 direction = (mousepos - transform.position).normalized;
             RaycastHit2D hitHook = Physics2D.Raycast(transform.position, direction, range);
 
-            if (hitHook.collider != null)
+            if (hitHook.collider != null && hitHook.distance > 2.0f)
             {
                 if (activeMagnet != null)
                 {
@@ -52,9 +56,11 @@ public class Hookshot : MonoBehaviour
                 m_hookTarget = hitHook.point;
                 m_journeyLength = Vector2.Distance(transform.position, hitHook.point);
                 m_startTime = Time.time;
-
+                
                 activeMagnet = Instantiate(magnet);
-                activeMagnet.transform.position = m_hookTarget;
+                activeMagnet.transform.position = new Vector2(transform.position.x, transform.position.y) + ((hitHook.point - m_startPoint).normalized * 2f );
+                activeMagnet.GetComponent<Magnet>().direction = (hitHook.point - m_startPoint).normalized;
+                
             }
         }
     }
@@ -66,45 +72,55 @@ public class Hookshot : MonoBehaviour
             Debug.DrawLine(transform.position, m_hookTarget);
             float distCovered = (Time.time - m_startTime) * speed;
             float fracJourney = distCovered / m_journeyLength;
+            
             transform.position = Vector2.Lerp(m_startPoint, m_hookTarget, fracJourney);
         }
 
-        /*
         hitDown = Physics2D.Raycast(transform.position, Vector2.down, 0.6f);
-
-        if (hitDown.collider != null && hitDown.distance < 1.0f)
+        if (hitDown.collider != null)
         {
-            velocity.y = 0;
-            hooking = false;
+            if (velocity.y < 0)
+                velocity.y = 0;
         }
-        else
+        hitUp = Physics2D.Raycast(transform.position, Vector2.up, 1.6f);
+        if (hitUp.collider != null)
         {
-            grounded = false;
+            if (velocity.y > 0)
+                velocity.y = 0;
         }
-        */
-
-        hitUp = Physics2D.Raycast(transform.position, Vector2.up, 0.5f);
-
-        if (hitUp.collider != null && hitUp.distance < 1.0f)
+        hitRight = Physics2D.Raycast(transform.position, Vector2.right, 0.6f);
+        if (hitRight.collider != null)
         {
-            velocity.y = 0;
-            hooking = false;
+            if (velocity.x > 0)
+                velocity.x = 0;
         }
-
-        hitRight = Physics2D.Raycast(transform.position, Vector2.right, 0.5f);
-
-        if (hitRight.collider != null && hitRight.distance < 1.0f)
+        hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.6f);
+        if (hitLeft.collider != null)
         {
-            velocity.x = 0;
-            hooking = false;
+            if (velocity.x < 0)
+                velocity.x = 0;
         }
 
-        hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.5f);
 
-        if (hitLeft.collider != null && hitLeft.distance < 1.0f)
+        hitUpleft = Physics2D.Raycast(transform.position, Vector2.left + Vector2.up, 0.6f);
+        if (hitUpleft.collider != null)
         {
-            velocity.x = 0;
-            hooking = false;
+            velocity = Vector2.zero;
+        }
+        hitDownleft = Physics2D.Raycast(transform.position, Vector2.left + Vector2.down, 0.6f);
+        if (hitDownleft.collider != null)
+        {
+            velocity = Vector2.zero;
+        }
+        hitUpRight = Physics2D.Raycast(transform.position, Vector2.right + Vector2.up, 0.6f);
+        if (hitUpRight.collider != null)
+        {
+            velocity = Vector2.zero;
+        }
+        hitDownRight = Physics2D.Raycast(transform.position, Vector2.right + Vector2.down, 0.6f);
+        if (hitDownRight.collider != null)
+        {
+            velocity = Vector2.zero;
         }
     }
 }

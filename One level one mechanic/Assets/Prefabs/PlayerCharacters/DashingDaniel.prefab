@@ -19,6 +19,7 @@ MonoBehaviour:
   dashDecrease: 100
   dashTimer: 0.15
   animator: {fileID: 7185678369955443918}
+  spriteRenderer: {fileID: 3615432464729351762}
   grounded: 0
   canDash: 1
   dashCooldown: 0
@@ -167,6 +168,12 @@ GameObject:
 --- !u!1 &7360987938309724286 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7265211171516901761, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 212879292786553343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3615432464729351762 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3519796467702142893, guid: 375100fdb21a1164c9bd55fa1fcde0b1,
     type: 3}
   m_PrefabInstance: {fileID: 212879292786553343}
   m_PrefabAsset: {fileID: 0}

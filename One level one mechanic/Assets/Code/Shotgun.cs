@@ -12,6 +12,7 @@ public class Shotgun : MonoBehaviour
     [SerializeField] private float knockback = 10;
     [SerializeField] public float fallVelocity = 15;
     [SerializeField] public float groundDeceleration = 25;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     public bool grounded = false;
 
     private RaycastHit2D hitLeft;
@@ -62,7 +63,16 @@ public class Shotgun : MonoBehaviour
         float AngleRad = Mathf.Atan2(mousepos.y - shotgun.transform.position.y, mousepos.x - shotgun.transform.position.x);
         float AngleDeg = (180 / Mathf.PI) * AngleRad;
         shotgun.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
-        
+
+        if (mousepos.x > transform.position.x)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (mousepos.x < transform.position.x)
+        {
+            spriteRenderer.flipX = false;
+        }
+
     }
 
     public void FixedUpdate()
