@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Melee : MonoBehaviour
 {
@@ -33,16 +31,16 @@ public class Melee : MonoBehaviour
         }
     }
 
+    public void LaunchPlayer()
+    {
+        velocity = direction * knockback * -1;
+    }
+
     private void Update()
     {
         mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousepos = new Vector3(mousepos.x, mousepos.y, 0);
         direction = (mousepos - sword.transform.position).normalized;
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            velocity = direction * knockback * -1;
-        }
 
         if (!grounded)
         {
@@ -55,7 +53,6 @@ public class Melee : MonoBehaviour
         float AngleRad = Mathf.Atan2(sword.transform.position.y - mousepos.y, sword.transform.position.x - mousepos.x);
         float AngleDeg = (180 / Mathf.PI) * AngleRad;
         sword.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
-
     }
 
     public void FixedUpdate()
