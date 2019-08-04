@@ -8,6 +8,7 @@ public class Dash : MonoBehaviour
     [SerializeField] public float dashStrength;
     [SerializeField] public float fallVelocity = 15;
     [SerializeField] public float deceleration = 25;
+    [SerializeField] public float dashDecreace = 25;
     [SerializeField] public Animator animator;
     public bool grounded = false;
 
@@ -15,7 +16,7 @@ public class Dash : MonoBehaviour
     private RaycastHit2D hitUp;
     private RaycastHit2D hitRight;
     private RaycastHit2D hitDown;
-    private bool canDash = true;
+    public bool canDash = true;
 
     public void Start()
     {
@@ -39,7 +40,8 @@ public class Dash : MonoBehaviour
 
         if (dashVelocity.sqrMagnitude > 0)
         {
-            dashVelocity -= Vector3.one * Time.deltaTime;
+            dashVelocity.x = Mathf.MoveTowards(dashVelocity.x, 0, dashDecreace * Time.deltaTime);
+            dashVelocity.y = Mathf.MoveTowards(dashVelocity.y, 0, dashDecreace * Time.deltaTime);
             dashVelocity.z = 0;
             transform.Translate(dashVelocity * Time.deltaTime);
         }
@@ -59,7 +61,7 @@ public class Dash : MonoBehaviour
     {
         hitDown = Physics2D.Raycast(transform.position, Vector2.down, 0.6f);
 
-        if (hitDown.collider != null && hitDown.distance < 1.0f)
+        if (hitDown.collider != null)
         {
             grounded = true;
             velocity.y = 0;
@@ -72,28 +74,28 @@ public class Dash : MonoBehaviour
 
         hitUp = Physics2D.Raycast(transform.position, Vector2.up, 0.5f);
 
-        if (hitUp.collider != null && hitUp.distance < 1.0f)
+        if (hitUp.collider != null)
         {
             velocity.y = 0;
-            dashVelocity.y = 0;
+            dashVelocity = Vector3.zero;
             canDash = true;
         }
 
         hitRight = Physics2D.Raycast(transform.position, Vector2.right, 0.5f);
 
-        if (hitRight.collider != null && hitRight.distance < 1.0f)
+        if (hitRight.collider != null)
         {
             velocity.x = 0;
-            dashVelocity.x = 0;
+            dashVelocity = Vector3.zero;
             canDash = true;
         }
 
         hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.5f);
 
-        if (hitLeft.collider != null && hitLeft.distance < 1.0f)
+        if (hitLeft.collider != null)
         {
             velocity.x = 0;
-            dashVelocity.x = 0;
+            dashVelocity = Vector3.zero;
             canDash = true;
         }
     }
