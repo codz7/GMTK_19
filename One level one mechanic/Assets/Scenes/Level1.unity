@@ -18536,6 +18536,11 @@ PrefabInstance:
       propertyPath: m_levels.Array.data[11]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 627402122599366608, guid: 037b9c3b97260a4418f28c1ae2ffee7b,
+        type: 3}
+      propertyPath: m_currentLevel
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 037b9c3b97260a4418f28c1ae2ffee7b, type: 3}
 --- !u!4 &9125819933821805881 stripped
