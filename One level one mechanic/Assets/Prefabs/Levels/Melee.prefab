@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &6815460223491419870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2786124999804553363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f8c14b1686d23b4296123573d8bc62a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  melee: {fileID: 0}
 --- !u!1 &5370826012485545090
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,12 +2397,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5969251801395476665}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2786124999804553363 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8393943406147416106, guid: 7d9dfb5c5a4a2e94d8b0ec5d4cdf7ace,
-    type: 3}
-  m_PrefabInstance: {fileID: 5969251801395476665}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6344016095540997680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2486,7 +2467,7 @@ PrefabInstance:
     - target: {fileID: 4840445075135348904, guid: c1b301bf12950344494412d969889487,
         type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[1].Array.size
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4840445075135348904, guid: c1b301bf12950344494412d969889487,
         type: 3}
