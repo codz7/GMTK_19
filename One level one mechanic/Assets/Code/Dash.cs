@@ -11,6 +11,7 @@ public class Dash : MonoBehaviour
     [SerializeField] public float dashDecrease = 25;
     [SerializeField] public float dashTimer = 0.15f;
     [SerializeField] public Animator animator;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     public bool grounded = false;
 
     private RaycastHit2D hitLeft;
@@ -75,6 +76,15 @@ public class Dash : MonoBehaviour
 
             velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
             transform.Translate(velocity * Time.deltaTime);
+        }
+
+        if (dashVelocity.x > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (dashVelocity.x < 0)
+        {
+            spriteRenderer.flipX = false;
         }
     }
 
