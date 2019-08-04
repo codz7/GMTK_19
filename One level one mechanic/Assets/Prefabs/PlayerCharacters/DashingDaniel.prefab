@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashVelocity: {x: 0, y: 0, z: 0}
-  dashStrength: 60
+  dashStrength: 40
   fallVelocity: 15
   deceleration: 25
-  dashDecreace: 35
+  dashDecrease: 100
   animator: {fileID: 0}
   grounded: 0
   canDash: 1

@@ -8,7 +8,7 @@ public class Dash : MonoBehaviour
     [SerializeField] public float dashStrength;
     [SerializeField] public float fallVelocity = 15;
     [SerializeField] public float deceleration = 25;
-    [SerializeField] public float dashDecreace = 25;
+    [SerializeField] public float dashDecrease = 25;
     [SerializeField] public Animator animator;
     public bool grounded = false;
 
@@ -40,8 +40,8 @@ public class Dash : MonoBehaviour
 
         if (dashVelocity.sqrMagnitude > 0)
         {
-            dashVelocity.x = Mathf.MoveTowards(dashVelocity.x, 0, dashDecreace * Time.deltaTime);
-            dashVelocity.y = Mathf.MoveTowards(dashVelocity.y, 0, dashDecreace * Time.deltaTime);
+            dashVelocity.x = Mathf.MoveTowards(dashVelocity.x, 0, dashDecrease * Time.deltaTime);
+            dashVelocity.y = Mathf.MoveTowards(dashVelocity.y, 0, dashDecrease * Time.deltaTime);
             dashVelocity.z = 0;
             transform.Translate(dashVelocity * Time.deltaTime);
         }
@@ -72,7 +72,7 @@ public class Dash : MonoBehaviour
             grounded = false;
         }
 
-        hitUp = Physics2D.Raycast(transform.position, Vector2.up, 0.5f);
+        hitUp = Physics2D.Raycast(transform.position, Vector2.up, 0.6f);
 
         if (hitUp.collider != null)
         {
