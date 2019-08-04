@@ -23,7 +23,6 @@ public class Checkpoint : MonoBehaviour
     {
         if (!m_activated && collider.gameObject.tag == "Player")
         {
-            Debug.Log("CHeck!");
             m_main.RemoveCheckpoint();
             m_activated = true;
             m_spriteRenderer.sprite = m_activatedSprite;
