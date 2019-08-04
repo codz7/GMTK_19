@@ -45,7 +45,7 @@ public class Shotgun : MonoBehaviour
             velocity = direction * knockback * -1;
             RaycastHit2D shotgunRay = Physics2D.Raycast(shotgun.transform.position, direction, rayRange);
 
-            if (shotgunRay.collider.gameObject.tag == "Enemies")
+            if (shotgunRay.collider != null && shotgunRay.collider.gameObject.tag == "Enemies")
             {
                 Destroy(shotgunRay.collider.gameObject);
             }            
