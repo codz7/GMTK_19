@@ -30,6 +30,9 @@ public class Jumping : MonoBehaviour
     {
         if (grounded)
         {
+            animator.SetTrigger("Idle");
+            animator.ResetTrigger("Jump");
+
             velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
 
             if (Input.GetButtonDown("Fire1"))
@@ -39,6 +42,9 @@ public class Jumping : MonoBehaviour
         }
         else
         {
+            animator.SetTrigger("Jump");
+            animator.ResetTrigger("Idle");
+
             velocity.y += Physics2D.gravity.y * Time.deltaTime * fallVelocity;
             charging = false;
         }
