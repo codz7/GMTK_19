@@ -9,6 +9,7 @@ public class Dash : MonoBehaviour
     [SerializeField] public float fallVelocity = 15;
     [SerializeField] public float deceleration = 25;
     [SerializeField] public float dashDecrease = 25;
+    public float dashTimer = 0.15f;
     [SerializeField] public Animator animator;
     public bool grounded = false;
 
@@ -17,6 +18,7 @@ public class Dash : MonoBehaviour
     private RaycastHit2D hitRight;
     private RaycastHit2D hitDown;
     public bool canDash = true;
+    public float dashCooldown = 0;
 
     public void Start()
     {
@@ -28,7 +30,7 @@ public class Dash : MonoBehaviour
 
     public virtual void Update()
     {
-        if(Input.GetButtonDown("Fire1") && canDash)
+        if(Input.GetButtonDown("Fire1") && canDash && dashCooldown <= 0.0f)
         {
             Vector3 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousepos = new Vector3(mousepos.x, mousepos.y, 0);
@@ -36,7 +38,15 @@ public class Dash : MonoBehaviour
             dashVelocity.z = 0;
             canDash = false;
             velocity = Vector3.zero;
+            dashCooldown = dashTimer;
         }
+
+        if (dashCooldown > 0.0f)
+        {
+            dashCooldown -= Time.deltaTime;
+        }
+
+        FixedUpdate();
 
         if (dashVelocity.sqrMagnitude > 0)
         {
@@ -63,39 +73,65 @@ public class Dash : MonoBehaviour
 
         if (hitDown.collider != null)
         {
+            if (dashCooldown < dashTimer * 0.9f)
+            {
+                canDash = true;
+            }
+
             grounded = true;
-            velocity.y = 0;
-            canDash = true;
+
+            if (velocity.y < 0)
+                velocity.y = 0;
+
+            if (dashVelocity.y < 0)
+                dashVelocity.y = 0;
         }
         else
         {
             grounded = false;
         }
 
-        hitUp = Physics2D.Raycast(transform.position, Vector2.up, 0.6f);
+        hitUp = Physics2D.Raycast(transform.position, Vector2.up, 1.6f);
 
         if (hitUp.collider != null)
         {
-            velocity.y = 0;
-            dashVelocity = Vector3.zero;
+            if (velocity.y > 0)
+                velocity.y = 0;
+
+            if (dashVelocity.y > 0)
+                dashVelocity.y = 0;
+
             canDash = true;
         }
 
-        hitRight = Physics2D.Raycast(transform.position, Vector2.right, 0.5f);
+        hitRight = Physics2D.Raycast(transform.position, Vector2.right, 0.6f);
 
         if (hitRight.collider != null)
         {
-            velocity.x = 0;
-            dashVelocity = Vector3.zero;
+            //velocity.x = 0;
+            //dashVelocity = Vector3.zero;
+
+            if (velocity.x > 0)
+                velocity.x = 0;
+
+            if (dashVelocity.x > 0)
+                dashVelocity.x = 0;
+
             canDash = true;
         }
 
-        hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.5f);
+        hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.6f);
 
         if (hitLeft.collider != null)
         {
-            velocity.x = 0;
-            dashVelocity = Vector3.zero;
+            //velocity.x = 0;
+            //dashVelocity = Vector3.zero;
+            if (velocity.x < 0)
+                velocity.x = 0;
+
+            if (dashVelocity.x < 0)
+                dashVelocity.x = 0;
+
             canDash = true;
         }
     }
