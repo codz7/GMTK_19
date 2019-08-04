@@ -18080,6 +18080,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 627402122599366608, guid: 037b9c3b97260a4418f28c1ae2ffee7b,
         type: 3}
+      propertyPath: m_levels.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 627402122599366608, guid: 037b9c3b97260a4418f28c1ae2ffee7b,
+        type: 3}
       propertyPath: m_currentLevel
       value: 3
       objectReference: {fileID: 0}
